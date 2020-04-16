@@ -17,7 +17,6 @@ public class DependecyLookupDemo {
 		//启动应用上下文
 		BeanFactory beanFactory = new ClassPathXmlApplicationContext("MATE-INF/dependecy-lookup-context.xml");
 
-
 		//实时查找
 		User user = beanFactory.getBean("user", User.class);
 		System.out.println("user = " + user);
