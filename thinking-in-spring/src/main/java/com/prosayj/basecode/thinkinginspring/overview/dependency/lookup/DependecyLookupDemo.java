@@ -1,6 +1,8 @@
 package com.prosayj.basecode.thinkinginspring.overview.dependency.lookup;
 
 import com.prosayj.basecode.thinkinginspring.overview.domain.User;
+import org.springframework.beans.factory.BeanFactory;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
  * 依赖查找测试
