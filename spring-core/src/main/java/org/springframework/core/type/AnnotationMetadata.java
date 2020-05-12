@@ -29,6 +29,8 @@ import org.springframework.core.annotation.MergedAnnotations.SearchStrategy;
  * Interface that defines abstract access to the annotations of a specific
  * class, in a form that does not require that class to be loaded yet.
  *
+ * 接口。该接口定义对特定类的注解的抽象访问，其形式尚不要求加载该类。
+ *
  * @author Juergen Hoeller
  * @author Mark Fisher
  * @author Phillip Webb
@@ -119,6 +121,9 @@ public interface AnnotationMetadata extends ClassMetadata, AnnotatedTypeMetadata
 	/**
 	 * Factory method to create a new {@link AnnotationMetadata} instance
 	 * for the given class using standard reflection.
+	 * <p>
+	 * 使用标准反射为给定类创建新的 AnnotationMetadata 实例 的工厂方法
+	 *
 	 * @param type the class to introspect
 	 * @return a new {@link AnnotationMetadata} instance
 	 * @since 5.2
