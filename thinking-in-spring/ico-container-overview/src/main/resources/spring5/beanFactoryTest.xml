@@ -4,6 +4,8 @@
 	   xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-	<bean id="myTestBean" class="com.prosayj.basecode.ioc.beans.MyTestBean"></bean>
+	<bean id="myTestBean" class="com.prosayj.basecode.ioc.beans.MyTestBean">
+		<property name="testStr" value="12121221"/>
+	</bean>
 
 </beans>

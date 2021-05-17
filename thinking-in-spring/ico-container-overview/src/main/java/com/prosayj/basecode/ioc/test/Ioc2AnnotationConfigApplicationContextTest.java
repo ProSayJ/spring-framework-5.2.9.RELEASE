@@ -19,7 +19,6 @@ public class Ioc2AnnotationConfigApplicationContextTest {
 		System.out.println("Spring container started and is ready");
 		System.out.println(context.getBean(MyTestBean.class));
 
-
 		/**
 		 * sacn
 		 * parser
@@ -28,9 +27,9 @@ public class Ioc2AnnotationConfigApplicationContextTest {
 		 * validate
 		 */
 
-		BeanDefinition beanDefinition = context.getBeanDefinition("myTestBean");
-		String[] beanDefinitionNames = context.getBeanDefinitionNames();
-		UserService bean = context.getBean(UserService.class);
+//		BeanDefinition beanDefinition = context.getBeanDefinition("myTestBean");
+//		String[] beanDefinitionNames = context.getBeanDefinitionNames();
+//		UserService bean = context.getBean(UserService.class);
 	}
 
 }

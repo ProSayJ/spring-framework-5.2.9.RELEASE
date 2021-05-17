@@ -4,6 +4,7 @@ import com.prosayj.basecode.ioc.beans.MyTestBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Description;
 
 /**
  * 配置类
@@ -15,8 +16,12 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @ComponentScan("com.prosayj.basecode.ioc")
 public class BeanConfig {
+
 	@Bean(name = "myTestBean")
+	@Description("myTestBean 类描述")
 	public MyTestBean registMyTestBean() {
-		return new MyTestBean();
+		MyTestBean myTestBean = new MyTestBean();
+		myTestBean.setTestStr("3333333333333");
+		return myTestBean;
 	}
 }
