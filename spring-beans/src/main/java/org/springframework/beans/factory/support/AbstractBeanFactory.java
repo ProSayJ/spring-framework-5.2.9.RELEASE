@@ -243,12 +243,12 @@ public abstract class AbstractBeanFactory extends FactoryBeanRegistrySupport imp
 			String name, @Nullable Class<T> requiredType, @Nullable Object[] args, boolean typeCheckOnly)
 			throws BeansException {
 
-		//解析 beanname如果以 & 开头去掉 & 开头，如果是别名获取到真正的名字
+		//解析 beanName 如果以 & 开头去掉 & 开头，如果是别名获取到真正的名字
 		String beanName = transformedBeanName(name);
 		Object bean;
 
 		// Eagerly check singleton cache for manually registered singletons.
-		//单纯理解尝试从缓存中获取bean
+		//单纯理解尝试从缓存中获取 bean
 		Object sharedInstance = getSingleton(beanName);
 		//如果已经存在则返回
 		if (sharedInstance != null && args == null) {
@@ -268,7 +268,7 @@ public abstract class AbstractBeanFactory extends FactoryBeanRegistrySupport imp
 		else {
 			// Fail if we're already creating this bean instance:
 			// We're assumably within a circular reference.
-			//如果是 prototype类型且开启允许循环依赖，则抛出异常
+			//如果是 prototype 类型且开启允许循环依赖，则抛出异常
 			if (isPrototypeCurrentlyInCreation(beanName)) {
 				throw new BeanCurrentlyInCreationException(beanName);
 			}

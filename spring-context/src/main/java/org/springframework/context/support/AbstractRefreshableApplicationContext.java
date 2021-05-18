@@ -129,7 +129,7 @@ public abstract class AbstractRefreshableApplicationContext extends AbstractAppl
 		try {
 			//实例化 Defaultlistablebeanfactory
 			DefaultListableBeanFactory beanFactory = createBeanFactory();
-			//设置序列化ID
+			//设置 spring容器 序列化ID
 			beanFactory.setSerializationId(getId());
 			//自定义bean工厂的一些属性(是否覆盖、是否允许循环依赖)
 			customizeBeanFactory(beanFactory);

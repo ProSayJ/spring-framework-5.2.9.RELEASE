@@ -74,16 +74,28 @@ public class DefaultSingletonBeanRegistry extends SimpleAliasRegistry implements
 	private static final int SUPPRESSED_EXCEPTIONS_LIMIT = 100;
 
 
-	/** Cache of singleton objects: bean name to bean instance. */
+	/**
+	 * Cache of singleton objects: bean name to bean instance.
+	 * 一级缓存：单例对象的cache
+	 */
 	private final Map<String, Object> singletonObjects = new ConcurrentHashMap<>(256);
 
-	/** Cache of singleton factories: bean name to ObjectFactory. */
+	/**
+	 * Cache of singleton factories: bean name to ObjectFactory.
+	 * 三级缓存：单例对象工厂的cache
+	 */
 	private final Map<String, ObjectFactory<?>> singletonFactories = new HashMap<>(16);
 
-	/** Cache of early singleton objects: bean name to bean instance. */
+	/**
+	 * Cache of early singleton objects: bean name to bean instance.
+	 * 二级缓存：提前暴光的单例对象的Cache
+	 */
 	private final Map<String, Object> earlySingletonObjects = new ConcurrentHashMap<>(16);
 
-	/** Set of registered singletons, containing the bean names in registration order. */
+	/**
+	 * Set of registered singletons, containing the bean names in registration order.
+	 * 已注册的单例 Set 集合，内部包含按注册顺序的 Bean名称
+	 */
 	private final Set<String> registeredSingletons = new LinkedHashSet<>(256);
 
 	/** Names of beans that are currently in creation. */
@@ -155,8 +167,11 @@ public class DefaultSingletonBeanRegistry extends SimpleAliasRegistry implements
 		Assert.notNull(singletonFactory, "Singleton factory must not be null");
 		synchronized (this.singletonObjects) {
 			if (!this.singletonObjects.containsKey(beanName)) {
+				//创建的对象添加到三级缓存
 				this.singletonFactories.put(beanName, singletonFactory);
+				//删除该对象在二级缓存中的数据
 				this.earlySingletonObjects.remove(beanName);
+				//创建的对象名称添加到有序的单例对象注册集合
 				this.registeredSingletons.add(beanName);
 			}
 		}
@@ -225,7 +240,7 @@ public class DefaultSingletonBeanRegistry extends SimpleAliasRegistry implements
 				if (logger.isDebugEnabled()) {
 					logger.debug("Creating shared instance of singleton bean '" + beanName + "'");
 				}
-				//验证完要真正开始创建对象，先标识该bean正在被创建，因为 SpringBean 创建过程复杂，步骤很多，需要标识
+				//验证完要真正开始创建对象，先标识该 bean 正在被创建，因为 SpringBean 创建过程复杂，步骤很多，需要标识
 				beforeSingletonCreation(beanName);
 				boolean newSingleton = false;
 				boolean recordSuppressedExceptions = (this.suppressedExceptions == null);
