@@ -9,6 +9,9 @@
         https://www.springframework.org/schema/aop/spring-aop.xsd
 ">
 
+	<!--<bean id="myBean" class="com.prosayj.analysis.springsource.MyBean"/>-->
+
+
 	<!--循环依赖问题-->
 	<bean id="myBeanId" class="com.prosayj.analysis.springsource.MyBean">
 		<property name="ItBean" ref="itBean"/>
@@ -22,7 +25,7 @@
 	<bean id="myBeanPostProcessor" class="com.prosayj.analysis.springsource.MyBeanPostProcessor"/>
 
 
-	<bean id="myBean" class="com.prosayj.analysis.springsource.MyBean"/>
+
 
 
 	<!--aop配置-->

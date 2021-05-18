@@ -1,5 +1,4 @@
 import com.prosayj.analysis.springsource.MyBean;
-import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
