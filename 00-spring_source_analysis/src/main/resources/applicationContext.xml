@@ -18,11 +18,11 @@
 	</bean>
 
 
-	<!--<bean id="myBeanFactoryPostProcessor" class="com.prosayj.analysis.springsource.MyBeanFactoryPostProcessor"/>
-	<bean id="myBeanPostProcessor" class="com.prosayj.analysis.springsource.MyBeanPostProcessor"/>-->
+	<bean id="myBeanFactoryPostProcessor" class="com.prosayj.analysis.springsource.MyBeanFactoryPostProcessor"/>
+	<bean id="myBeanPostProcessor" class="com.prosayj.analysis.springsource.MyBeanPostProcessor"/>
 
 
-	<!--<bean id="myBean" class="com.prosayj.analysis.springsource.MyBean"/>-->
+	<bean id="myBean" class="com.prosayj.analysis.springsource.MyBean"/>
 
 
 	<!--aop配置-->
