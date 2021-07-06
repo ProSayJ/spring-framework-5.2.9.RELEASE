@@ -8,7 +8,7 @@ import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 
 /**
  * 测试 Bean 生命周期：初始化的回调,初始化完成以后的回调
- *
+ * <p>
  * 构造器	refresh#ﬁnishBeanFactoryInitialization(beanFactory)(beanFactory)
  * BeanFactoryPostProcessor 	初始化	refresh#invokeBeanFactoryPostProcessors(beanFactory)
  * BeanFactoryPostProcessor 	⽅法调⽤	refresh#invokeBeanFactoryPostProcessors(beanFactory)
@@ -77,5 +77,10 @@ public class MyBeanStageTest extends BaseBean implements
 
 	public void print() {
 		System.out.println("MyInitialzingBean print方法业务逻辑执行");
+	}
+
+	@Override
+	public String toString() {
+		return "MyBeanStageTest{} " + super.toString();
 	}
 }

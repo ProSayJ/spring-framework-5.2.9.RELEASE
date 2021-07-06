@@ -6,8 +6,7 @@
 	    http://www.springframework.org/schema/beans
         https://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/aop
-        https://www.springframework.org/schema/aop/spring-aop.xsd
-">
+        https://www.springframework.org/schema/aop/spring-aop.xsd">
 
 
 	<bean id="myBeanStageTest" class="com.prosayj.analysis.springsource.bean.MyBeanStageTest">
@@ -25,8 +24,6 @@
 	<!--	<bean id="itBean" class="com.prosayj.analysis.springsource.ItBean">-->
 	<!--		<property name="myBean" ref="myBeanId"/>-->
 	<!--	</bean>-->
-
-
 
 
 	<!--aop配置-->
