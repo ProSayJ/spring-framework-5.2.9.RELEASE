@@ -348,10 +348,13 @@ public abstract class AbstractBeanFactory extends FactoryBeanRegistrySupport imp
 					// It's a prototype -> create a new instance.
 					Object prototypeInstance = null;
 					try {
+						//创建原型bean之前添加标记
 						beforePrototypeCreation(beanName);
+						//创建原型bean
 						prototypeInstance = createBean(beanName, mbd, args);
 					}
 					finally {
+						//创建原型bean之后删除标记
 						afterPrototypeCreation(beanName);
 					}
 					bean = getObjectForBeanInstance(prototypeInstance, name, beanName, mbd);

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:aop="http://www.springframework.org/schema/aop"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xsi:schemaLocation="
+	    http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop
+        https://www.springframework.org/schema/aop/spring-aop.xsd
+">
+
+
+	<bean id="aId" class="com.prosayj.analysis.springsource.bean.circularreference.A">
+		<constructor-arg name="b" ref="bId"/>
+	</bean>
+	<bean id="bId" class="com.prosayj.analysis.springsource.bean.circularreference.B">
+		<constructor-arg name="a" ref="aId"/>
+	</bean>
+
+
+	<!--	<bean id="aId2" class="com.prosayj.analysis.springsource.bean.cyclerefience.A">-->
+	<!--		<property name="b" ref="bId2"/>-->
+	<!--	</bean>-->
+	<!--	<bean id="bId2" class="com.prosayj.analysis.springsource.bean.cyclerefience.B">-->
+	<!--		<property name="a" ref="aId2"/>-->
+	<!--	</bean>-->
+
+
+</beans>
