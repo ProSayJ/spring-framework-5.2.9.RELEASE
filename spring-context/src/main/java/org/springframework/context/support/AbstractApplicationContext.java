@@ -154,8 +154,9 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
 
 
 	static {
-		// Eagerly load the ContextClosedEvent class to avoid weird classloader issues
+		// Eagerly load the ContextClosedEvent class to avoid weird classloader issues.
 		// on application shutdown in WebLogic 8.1. (Reported by Dustin Woods.)
+		//为了避免在WebLogic 8.1 上奇怪的类加载问题
 		ContextClosedEvent.class.getName();
 	}
 
@@ -515,9 +516,9 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
 
 
 	/**
-	 * 两个大部分
-	 * 1：BeanFactory的创建流程
-	 * 2：Bean对象的创建流程
+	 * 两个大部分：
+	 * <p>1：BeanFactory的创建流程<br>
+	 * 2：Bean对象的创建流程<br>
 	 */
 	@Override
 	public void refresh() throws BeansException, IllegalStateException {
