@@ -1,5 +1,6 @@
-package com.prosayj.analysis.springsource.bean;
+package com.prosayj.analysis.springsource.ioc;
 
+import com.prosayj.analysis.springsource.bean.BaseBean;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.config.BeanFactoryPostProcessor;
@@ -9,7 +10,7 @@ import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 /**
  * 测试 Bean 生命周期：初始化的回调,初始化完成以后的回调
  * <p>
- * 构造器	refresh#ﬁnishBeanFactoryInitialization(beanFactory)(beanFactory)
+ * 构造器	refresh#finshBeanFactoryInitialization(beanFactory)(beanFactory)
  * BeanFactoryPostProcessor 	初始化	refresh#invokeBeanFactoryPostProcessors(beanFactory)
  * BeanFactoryPostProcessor 	⽅法调⽤	refresh#invokeBeanFactoryPostProcessors(beanFactory)
  * BeanPostProcessor 			初始化	registerBeanPostProcessors(beanFactory)
@@ -18,7 +19,7 @@ import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
  * @author yangjian
  * @date 2021-05-18
  */
-public class MyBeanStageTest extends BaseBean implements
+public class MyBeanStage extends BaseBean implements
 		InitializingBean,
 		BeanPostProcessor,
 		BeanFactoryPostProcessor {
@@ -26,8 +27,8 @@ public class MyBeanStageTest extends BaseBean implements
 	/**
 	 * 构造函数
 	 */
-	public MyBeanStageTest() {
-		System.out.println("==============>MyBeanStageTest 构造器执行...");
+	public MyBeanStage() {
+		System.out.println("==============>MyBeanStage 构造器执行...");
 	}
 
 
@@ -55,7 +56,7 @@ public class MyBeanStageTest extends BaseBean implements
 	 */
 	@Override
 	public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
-		if ("myBeanStageTest".equals(beanName)) {
+		if ("myBeanStage".equals(beanName)) {
 			System.out.println("==============> BeanPostProcessor#postProcessBeforeInitialization 实现被调用中......");
 		}
 		return bean;

@@ -1,4 +1,4 @@
-import com.prosayj.analysis.springsource.bean.MyBeanStageTest;
+import com.prosayj.analysis.springsource.ioc.MyBeanStage;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
@@ -20,7 +20,7 @@ public class IocTest {
 		 * Bean后置处理器初始化：AbstractApplicationContext#refresh#registerBeanPostProcessors
 		 */
 		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("classpath:applicationContext-Ioc.xml");
-		MyBeanStageTest bean = context.getBean(MyBeanStageTest.class);
+		MyBeanStage bean = context.getBean(MyBeanStage.class);
 		System.out.println(bean);
 	}
 }

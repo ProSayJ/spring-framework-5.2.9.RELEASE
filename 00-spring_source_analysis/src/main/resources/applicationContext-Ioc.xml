@@ -9,7 +9,7 @@
         https://www.springframework.org/schema/aop/spring-aop.xsd">
 
 
-	<bean id="myBeanStageTest" class="com.prosayj.analysis.springsource.bean.MyBeanStageTest">
+	<bean id="myBeanStage" class="com.prosayj.analysis.springsource.ioc.MyBeanStage">
 		<property name="name" value="ProSayJ"/>
 	</bean>
 

@@ -588,7 +588,7 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
 
 				/*
 				Check for listener beans and register them.
-				第⼗步：注册应用的监听器。就是注册实现了 Applicationlistener 接口的监听器bean
+				第⼗步：注册应用的监听器。就是注册实现了 Applicationlistener 接口的监听器bL1ean
 				*/
 				registerListeners();
 
@@ -686,7 +686,8 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
 	}
 
 	/**
-	 * Tell the subclass to refresh the internal bean factory.
+	 * Tell the subclass to refresh the internal bean factory.<br>
+	 * 【告诉字类去刷新内部的BeanFactory】
 	 * @return the fresh BeanFactory instance
 	 * @see #refreshBeanFactory()
 	 * @see #getBeanFactory()
