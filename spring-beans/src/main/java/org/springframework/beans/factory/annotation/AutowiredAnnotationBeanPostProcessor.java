@@ -465,13 +465,17 @@ public class AutowiredAnnotationBeanPostProcessor extends InstantiationAwareBean
 		}
 
 		List<InjectionMetadata.InjectedElement> elements = new ArrayList<>();
+		//需要处理的目标类
 		Class<?> targetClass = clazz;
 
 		do {
 			final List<InjectionMetadata.InjectedElement> currElements = new ArrayList<>();
 
+			//通过反射获取该类所有的字段，并遍历每一个字段，并通过方法 findAutowiredAnnotation 遍历每一个字段的所用注解，
+			// 并如果用autowired修饰了，则返回auotowired相关属性。
 			ReflectionUtils.doWithLocalFields(targetClass, field -> {
 				MergedAnnotation<?> ann = findAutowiredAnnotation(field);
+				//校验autowired注解是否用在了static方法上
 				if (ann != null) {
 					if (Modifier.isStatic(field.getModifiers())) {
 						if (logger.isInfoEnabled()) {
@@ -479,11 +483,12 @@ public class AutowiredAnnotationBeanPostProcessor extends InstantiationAwareBean
 						}
 						return;
 					}
+					//判断是否指定了required
 					boolean required = determineRequiredStatus(ann);
 					currElements.add(new AutowiredFieldElement(field, required));
 				}
 			});
-
+			//和上面一样的逻辑，但是是通过反射处理类的method
 			ReflectionUtils.doWithLocalMethods(targetClass, method -> {
 				Method bridgedMethod = BridgeMethodResolver.findBridgedMethod(method);
 				if (!BridgeMethodResolver.isVisibilityBridgeMethodPair(method, bridgedMethod)) {
@@ -509,6 +514,7 @@ public class AutowiredAnnotationBeanPostProcessor extends InstantiationAwareBean
 				}
 			});
 
+			//用 @Autowired 修饰的注解可能不止一个，因此都加在 currElements 这个容器里面，一起处理
 			elements.addAll(0, currElements);
 			targetClass = targetClass.getSuperclass();
 		}

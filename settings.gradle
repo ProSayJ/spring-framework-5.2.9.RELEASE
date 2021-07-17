@@ -43,7 +43,8 @@ rootProject.children.each {project ->
 	project.buildFileName = "${project.name}.gradle"
 }
 
-include '00-spring_source_analysis'
-include '01_ico-container-overview'
+include '00-spring_test'
+//include '00-spring_source_analysis'
+//include '01_ico-container-overview'
 
 
